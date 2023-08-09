@@ -1,0 +1,15 @@
+/Users/joseplluis/repos/StrategyPatternExample/StrategyPatternExample/bin/Debug/net7.0/StrategyPatternExample
+/Users/joseplluis/repos/StrategyPatternExample/StrategyPatternExample/bin/Debug/net7.0/StrategyPatternExample.deps.json
+/Users/joseplluis/repos/StrategyPatternExample/StrategyPatternExample/bin/Debug/net7.0/StrategyPatternExample.runtimeconfig.json
+/Users/joseplluis/repos/StrategyPatternExample/StrategyPatternExample/bin/Debug/net7.0/StrategyPatternExample.dll
+/Users/joseplluis/repos/StrategyPatternExample/StrategyPatternExample/bin/Debug/net7.0/StrategyPatternExample.pdb
+/Users/joseplluis/repos/StrategyPatternExample/StrategyPatternExample/obj/Debug/net7.0/StrategyPatternExample.csproj.AssemblyReference.cache
+/Users/joseplluis/repos/StrategyPatternExample/StrategyPatternExample/obj/Debug/net7.0/StrategyPatternExample.GeneratedMSBuildEditorConfig.editorconfig
+/Users/joseplluis/repos/StrategyPatternExample/StrategyPatternExample/obj/Debug/net7.0/StrategyPatternExample.AssemblyInfoInputs.cache
+/Users/joseplluis/repos/StrategyPatternExample/StrategyPatternExample/obj/Debug/net7.0/StrategyPatternExample.AssemblyInfo.cs
+/Users/joseplluis/repos/StrategyPatternExample/StrategyPatternExample/obj/Debug/net7.0/StrategyPatternExample.csproj.CoreCompileInputs.cache
+/Users/joseplluis/repos/StrategyPatternExample/StrategyPatternExample/obj/Debug/net7.0/StrategyPatternExample.dll
+/Users/joseplluis/repos/StrategyPatternExample/StrategyPatternExample/obj/Debug/net7.0/refint/StrategyPatternExample.dll
+/Users/joseplluis/repos/StrategyPatternExample/StrategyPatternExample/obj/Debug/net7.0/StrategyPatternExample.pdb
+/Users/joseplluis/repos/StrategyPatternExample/StrategyPatternExample/obj/Debug/net7.0/StrategyPatternExample.genruntimeconfig.cache
+/Users/joseplluis/repos/StrategyPatternExample/StrategyPatternExample/obj/Debug/net7.0/ref/StrategyPatternExample.dll
