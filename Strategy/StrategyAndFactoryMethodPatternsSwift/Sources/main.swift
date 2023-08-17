@@ -1,8 +1,29 @@
 // The Swift Programming Language
 // https://docs.swift.org/swift-book
 
-print("Hello, world!")
+let creators: [CustomerCreator] = [
+    StandardCustomerCreator(),
+    VIPCustomerCreator(),
+    FriendCustomerCreator()
+    ]
 
+for creator in creators
+{
+    let customer:CustomerBase = creator.FactoryMethod()
+    PrintPriceAndDiscount(customer: customer)
+}
+
+func PrintPriceAndDiscount(customer: CustomerBase)
+{
+    print(
+        """
+        Customer \(customer.customerType) [ 
+            Price: \(customer.getPrice(itemId:"item1", date:"01-01-2000")), 
+            Discount: \(customer.getDiscount(itemId:"item1", date:"01-01-2000"))
+        ]\n
+        """
+    );
+}
 
 /// <summary>
 /// Customer types
@@ -21,22 +42,18 @@ enum CustomerType
 
 class CustomerBase
 {
-    private var _customerType: CustomerType = CustomerType.standard
-    var customerType: CustomerType { get {return _customerType} }
+    var customerType: CustomerType = CustomerType.standard
+    var getPriceFormula: IGetPriceFormula = GetPriceFormula()
+    var getDiscountFormula: IGetDiscountFormula = GetDiscountFormula()
 
-  //  protected IGetPriceFormula GetPriceFormula = new GetPriceFormula();
-  //  protected IGetDiscountFormula GetDiscountFormula = new GetDiscountFormula();
-
-    func GetPrice(itemId: String, date: String) -> Double
+    func getPrice(itemId: String, date: String) -> Double
     {
-        return 0
-        //return this.GetPriceFormula.GetPrice(itemId, date)
+        return getPriceFormula.getPrice(itemId: itemId, date: date)
     }
 
-    func GetDiscount(itemId: String, date: String) -> Double
+    func getDiscount(itemId: String, date: String) -> Double
     {
-        return 0
-        //return this.GetDiscountFormula.GetDiscount(itemId, date)
+        return getDiscountFormula.getDiscount(itemId: itemId, date: date)
     }
 }
 
@@ -51,3 +68,134 @@ class CustomerCreator
         fatalError("Subclasses need to implement the `FactoryMethod()` method.")
     }
 }
+
+/// <summary>
+/// Concrete Customer creation classes
+/// </summary>
+
+class StandardCustomerCreator : CustomerCreator
+{
+    override func FactoryMethod() -> CustomerBase
+    {
+        return StandardCustomer()
+    }
+}
+
+class VIPCustomerCreator : CustomerCreator
+{
+    override func FactoryMethod() -> CustomerBase
+    {
+        return VIPCustomer()
+    }
+}
+
+class FriendCustomerCreator : CustomerCreator
+{
+    override func FactoryMethod() -> CustomerBase
+    {
+        return FriendCustomer()
+    }
+}
+
+/// <summary>
+/// Concrete Customers classes
+/// </summary>
+
+class StandardCustomer: CustomerBase
+{
+    override init()
+    {
+        super.init()
+        customerType = CustomerType.standard
+    }
+}
+
+class VIPCustomer : CustomerBase
+{
+    override init()
+    {
+        super.init()
+        customerType = CustomerType.vip
+        getPriceFormula = GetVIPsPriceFormula()
+        getDiscountFormula = GetVIPsDiscountFormula()
+    }
+}
+
+class FriendCustomer : CustomerBase
+{
+    override init()
+    {
+        super.init()
+        customerType = CustomerType.friend
+        getPriceFormula = GetFriendsPriceFormula()
+        getDiscountFormula = GetFriendsDiscountFormula()
+    }
+}
+
+/// <summary>
+/// STRATEGY PATTERN - Get price & discount interfaces
+/// https://www.csharptutorial.net/csharp-design-patterns/csharp-strategy-pattern/
+/// </summary>
+
+protocol IGetPriceFormula
+{
+    func getPrice(itemId: String, date: String) -> Double
+}
+
+protocol IGetDiscountFormula
+{
+    func getDiscount(itemId: String, date: String) -> Double
+}
+
+// Concrete price formulas
+
+class GetPriceFormula : IGetPriceFormula
+{
+    func getPrice(itemId: String, date: String) -> Double
+    {
+        return 100
+    }
+}
+
+class GetVIPsPriceFormula : IGetPriceFormula
+{
+    func getPrice(itemId: String, date: String) -> Double
+    {
+        return 90
+    }
+}
+
+class GetFriendsPriceFormula : IGetPriceFormula
+{
+    func getPrice(itemId: String, date: String) -> Double
+    {
+        return 0
+    }
+}
+
+// Concrete discount formulas
+
+class GetDiscountFormula : IGetDiscountFormula
+{
+    func getDiscount(itemId: String, date: String) -> Double
+    {
+        return 0
+    }
+}
+
+class GetVIPsDiscountFormula : IGetDiscountFormula
+{
+    func getDiscount(itemId: String, date: String) -> Double
+    {
+        return 50
+    }
+}
+
+class GetFriendsDiscountFormula : IGetDiscountFormula
+{
+    func getDiscount(itemId: String, date: String) -> Double
+    {
+        return 100
+    }
+}
+
