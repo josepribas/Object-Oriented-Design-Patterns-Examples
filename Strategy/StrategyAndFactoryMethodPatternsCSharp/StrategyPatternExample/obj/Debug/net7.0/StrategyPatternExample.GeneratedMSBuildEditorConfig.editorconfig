@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = StrategyPatternExample
-build_property.ProjectDir = /Users/joseplluis/repos/StrategyPatternExample/StrategyAndFactoryMethodPatternsCSharp/StrategyPatternExample/
+build_property.ProjectDir = /Users/joseplluis/repos/Object-Oriented-Design-Patterns-Examples/Strategy/StrategyAndFactoryMethodPatternsCSharp/StrategyPatternExample/
